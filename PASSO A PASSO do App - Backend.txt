@@ -1,0 +1,61 @@
+1. Iniciar o arquivo package .json via CMD na pasta do projeto (backend): NPM INIT -Y
+
+2. Instalar o typescipt na pasta: npm install --save-dev typescript @types/node
+
+3. Instalar o express para usar as rotas: npm install express tsx
+
+4. Instalar a tipagem do express para TS: npm install --save-dev @types/express
+
+5. npx tsc --init para criar o arquivo tsconfig.json
+
+6. Substitui o o tsconfig.json padrão pelo disponilizado no curso com as configurações padrões.
+
+7. Cria as pastas src e dist na raiz do projeto.
+
+8. Dentro da SRC cria os arquivos router.js que vai ter as rotas e o server.ts que vai inicializar a api.
+
+9. Programa a configuração da porta no server.ts
+
+10. Muda o Scrpits no package.json para dev: tsx watch src/server.ts assim ele sempre ira escutar esse arquivo
+
+11. Para rodar a api, vai no CMD na pasta do projeto e digita: npm run dev
+
+12. Agora instala o CORS para liberar a api para o navegador não bloquear: npm install cors dotenv
+
+13. Instale o CORS na tipagem do TS: npm i --save-dev @types/cors
+
+14. Cria o arquivo .env na raiz para as variaveis de ambiente. Depois importa o arquivo no server.ts: import 'dotenv/config'; 
+
+15. Eu criei uma variavel ambinete PORT para definir a porta. Usa a env com process.env.PORT
+
+16. Roda a api no terminal com: npm run dev
+
+17. ARQUITETURA API: cria as pastar controllers, middlewares, schemas, services, config
+
+18. Instala o zod para fazer validação de forms: npm install zod
+
+19. Para instalar o ORM Prisma segue os passos descritos na documentação: https://www.prisma.io/docs/getting-started/prisma-orm/add-to-existing-project/prisma-postgres 
+
+20. Para fazer uma migration, depois que alterar o schema.prisma digita: npx prisma migrate dev --name your_migration_name
+
+21. ATENÇÃO APOS A MIGRATE: Sempre rodar o comando: npx prisma generate
+
+22. CRIPTOGRAFAR SENHA: use o npm install bcryptjs
+
+23. JWT - Processo onde o servidor gera um token na autenticacao e manda para o user, que usa o token nas proximas requisicoes
+
+23. Instalar biblioteca para o JWT: npm install jsonwebtoken e depois a tipagem npm i --save-dev @types/jsonwebtoken
+
+24. NUVEM IMAGEM: Usa o Cloudnary. Cria as tres variaveis de ambiente, com os dados da conta cloudinary. 
+
+25. NUVEM Cloudnary: Instalar o Cloudnary: npm install cloudinary
+
+26. MULTER: biblioteca de upload:  npm install multer
+
+27. MULTER: Tambem instala as dependencias do multer: npm install --save-dev @types/multer
+
+28. Cloudnary: Cria os arquivos cloudinary e multe dentor de config e configura a api conforme exemplo. 
+
+29. USO DO MMULTER: Quando usa o multer, na request não pode usar o body mas sim o form-data.
+
+30. PRISMA STUDIO: npx prisma studio

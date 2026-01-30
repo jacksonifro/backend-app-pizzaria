@@ -1,0 +1,97 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Usuario {
+  id String @id @default(uuid())
+  nome String
+  email String @unique
+  senha String
+  perfil Role @default(USER)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
+  @@map("usuario")
+  
+}
+
+model Categoria {
+  id String @id @default(uuid())
+  nome String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
+  produtos Produto[]  // Relação um-para-muitos com Produto
+
+  @@map("categoria")
+}
+
+model Produto {
+  id String @id @default(uuid())
+  nome String
+  preco Int // em centavos para evitar problemas com ponto flutuante
+  descricao String
+  imagem String
+  desativado Boolean @default(false)
+
+
+  categoria_id String // Chave estrangeira para Categoria
+  categoria Categoria @relation(fields: [categoria_id], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
+  produto_itens Pedido_Item[] // Relação um-para-muitos com PedidoItem
+
+  @@map("produto")
+}
+
+
+model Pedido {
+  id String @id @default(uuid())
+  mesa Int
+  status_mesa Boolean @default(true) // False = Pendente, True = Atendida
+  rascunho Boolean @default(true) // True = Em produção, False = Pronto para entrega
+  cliente_nome String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
+  itens Pedido_Item[] // Relação um-para-muitos com PedidoItem
+
+  @@map("pedido")
+}
+
+model Pedido_Item {
+  id String @id @default(uuid())
+  quantidade Int // em centavos para evitar problemas com ponto flutuante  
+
+  pedido_id String
+  pedido Pedido @relation(fields: [pedido_id], references: [id])
+
+  produto_id String
+  produto Produto @relation(fields: [produto_id], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
+  @@map("pedido_item")
+} 
