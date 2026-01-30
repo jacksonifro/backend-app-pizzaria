@@ -21,7 +21,7 @@ import { EditProductController } from "./controllers/Produto/EditProductControll
 import { ListProductCatController } from "./controllers/Produto/ListProductCatController";
 import { EditUserController } from "./controllers/Usuario/EditUserController";
 import { CreatePedidoController } from "./controllers/Pedido/CreatePedidoController";
-import { createPedidoSchema, enviarPedidoSchema } from "./schemas/pedidoSchema";
+import { createPedidoSchema, enviarPedidoSchema, finalizarPedidoSchema } from "./schemas/pedidoSchema";
 import { ListPedidoController } from "./controllers/Pedido/ListPedidoController";
 import { CreateItemController } from "./controllers/Item/CreateItemController";
 import { createItemSchema } from "./schemas/itemSchema";
@@ -29,6 +29,8 @@ import { DeleteItemController } from "./controllers/Item/DeleteItemController";
 import { DetalhesItemController } from "./controllers/Item/DetalheItemController";
 import { DetalhesPedidoController } from "./controllers/Pedido/DetalhesPedidoController";
 import { EnviarPedidoController } from "./controllers/Pedido/EnviarPedidoController";
+import { FinalizarPedidoController } from "./controllers/Pedido/FinalizarPedidoController";
+import { DeletarPedidoController } from "./controllers/Pedido/DeletarPedidoController";
 
 
 
@@ -160,6 +162,21 @@ router.put(
     autenticarTokenUser,
     validateSchema(enviarPedidoSchema),
     new EnviarPedidoController().handle
+)
+
+//Rota para Finalizar Pedido
+router.put(
+    '/pedidos/finish',
+    autenticarTokenUser,
+    validateSchema(finalizarPedidoSchema),
+    new FinalizarPedidoController().handle
+)
+
+//Rota para Deletar Pedido
+router.delete(
+    '/pedidos',
+    autenticarTokenUser,
+    new DeletarPedidoController().handle
 )
 
 

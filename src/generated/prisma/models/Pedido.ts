@@ -37,7 +37,7 @@ export type PedidoSumAggregateOutputType = {
 export type PedidoMinAggregateOutputType = {
   id: string | null
   mesa: number | null
-  status_mesa: boolean | null
+  status: boolean | null
   rascunho: boolean | null
   cliente_nome: string | null
   createdAt: Date | null
@@ -47,7 +47,7 @@ export type PedidoMinAggregateOutputType = {
 export type PedidoMaxAggregateOutputType = {
   id: string | null
   mesa: number | null
-  status_mesa: boolean | null
+  status: boolean | null
   rascunho: boolean | null
   cliente_nome: string | null
   createdAt: Date | null
@@ -57,7 +57,7 @@ export type PedidoMaxAggregateOutputType = {
 export type PedidoCountAggregateOutputType = {
   id: number
   mesa: number
-  status_mesa: number
+  status: number
   rascunho: number
   cliente_nome: number
   createdAt: number
@@ -77,7 +77,7 @@ export type PedidoSumAggregateInputType = {
 export type PedidoMinAggregateInputType = {
   id?: true
   mesa?: true
-  status_mesa?: true
+  status?: true
   rascunho?: true
   cliente_nome?: true
   createdAt?: true
@@ -87,7 +87,7 @@ export type PedidoMinAggregateInputType = {
 export type PedidoMaxAggregateInputType = {
   id?: true
   mesa?: true
-  status_mesa?: true
+  status?: true
   rascunho?: true
   cliente_nome?: true
   createdAt?: true
@@ -97,7 +97,7 @@ export type PedidoMaxAggregateInputType = {
 export type PedidoCountAggregateInputType = {
   id?: true
   mesa?: true
-  status_mesa?: true
+  status?: true
   rascunho?: true
   cliente_nome?: true
   createdAt?: true
@@ -194,7 +194,7 @@ export type PedidoGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 export type PedidoGroupByOutputType = {
   id: string
   mesa: number
-  status_mesa: boolean
+  status: boolean
   rascunho: boolean
   cliente_nome: string | null
   createdAt: Date
@@ -227,7 +227,7 @@ export type PedidoWhereInput = {
   NOT?: Prisma.PedidoWhereInput | Prisma.PedidoWhereInput[]
   id?: Prisma.StringFilter<"Pedido"> | string
   mesa?: Prisma.IntFilter<"Pedido"> | number
-  status_mesa?: Prisma.BoolFilter<"Pedido"> | boolean
+  status?: Prisma.BoolFilter<"Pedido"> | boolean
   rascunho?: Prisma.BoolFilter<"Pedido"> | boolean
   cliente_nome?: Prisma.StringNullableFilter<"Pedido"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Pedido"> | Date | string
@@ -238,7 +238,7 @@ export type PedidoWhereInput = {
 export type PedidoOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   mesa?: Prisma.SortOrder
-  status_mesa?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   rascunho?: Prisma.SortOrder
   cliente_nome?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -252,7 +252,7 @@ export type PedidoWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.PedidoWhereInput[]
   NOT?: Prisma.PedidoWhereInput | Prisma.PedidoWhereInput[]
   mesa?: Prisma.IntFilter<"Pedido"> | number
-  status_mesa?: Prisma.BoolFilter<"Pedido"> | boolean
+  status?: Prisma.BoolFilter<"Pedido"> | boolean
   rascunho?: Prisma.BoolFilter<"Pedido"> | boolean
   cliente_nome?: Prisma.StringNullableFilter<"Pedido"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Pedido"> | Date | string
@@ -263,7 +263,7 @@ export type PedidoWhereUniqueInput = Prisma.AtLeast<{
 export type PedidoOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   mesa?: Prisma.SortOrder
-  status_mesa?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   rascunho?: Prisma.SortOrder
   cliente_nome?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -281,7 +281,7 @@ export type PedidoScalarWhereWithAggregatesInput = {
   NOT?: Prisma.PedidoScalarWhereWithAggregatesInput | Prisma.PedidoScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Pedido"> | string
   mesa?: Prisma.IntWithAggregatesFilter<"Pedido"> | number
-  status_mesa?: Prisma.BoolWithAggregatesFilter<"Pedido"> | boolean
+  status?: Prisma.BoolWithAggregatesFilter<"Pedido"> | boolean
   rascunho?: Prisma.BoolWithAggregatesFilter<"Pedido"> | boolean
   cliente_nome?: Prisma.StringNullableWithAggregatesFilter<"Pedido"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Pedido"> | Date | string
@@ -291,7 +291,7 @@ export type PedidoScalarWhereWithAggregatesInput = {
 export type PedidoCreateInput = {
   id?: string
   mesa: number
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: string | null
   createdAt?: Date | string
@@ -302,7 +302,7 @@ export type PedidoCreateInput = {
 export type PedidoUncheckedCreateInput = {
   id?: string
   mesa: number
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: string | null
   createdAt?: Date | string
@@ -313,7 +313,7 @@ export type PedidoUncheckedCreateInput = {
 export type PedidoUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   mesa?: Prisma.IntFieldUpdateOperationsInput | number
-  status_mesa?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   rascunho?: Prisma.BoolFieldUpdateOperationsInput | boolean
   cliente_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -324,7 +324,7 @@ export type PedidoUpdateInput = {
 export type PedidoUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   mesa?: Prisma.IntFieldUpdateOperationsInput | number
-  status_mesa?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   rascunho?: Prisma.BoolFieldUpdateOperationsInput | boolean
   cliente_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -335,7 +335,7 @@ export type PedidoUncheckedUpdateInput = {
 export type PedidoCreateManyInput = {
   id?: string
   mesa: number
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: string | null
   createdAt?: Date | string
@@ -345,7 +345,7 @@ export type PedidoCreateManyInput = {
 export type PedidoUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   mesa?: Prisma.IntFieldUpdateOperationsInput | number
-  status_mesa?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   rascunho?: Prisma.BoolFieldUpdateOperationsInput | boolean
   cliente_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -355,7 +355,7 @@ export type PedidoUpdateManyMutationInput = {
 export type PedidoUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   mesa?: Prisma.IntFieldUpdateOperationsInput | number
-  status_mesa?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   rascunho?: Prisma.BoolFieldUpdateOperationsInput | boolean
   cliente_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -365,7 +365,7 @@ export type PedidoUncheckedUpdateManyInput = {
 export type PedidoCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   mesa?: Prisma.SortOrder
-  status_mesa?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   rascunho?: Prisma.SortOrder
   cliente_nome?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -379,7 +379,7 @@ export type PedidoAvgOrderByAggregateInput = {
 export type PedidoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   mesa?: Prisma.SortOrder
-  status_mesa?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   rascunho?: Prisma.SortOrder
   cliente_nome?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -389,7 +389,7 @@ export type PedidoMaxOrderByAggregateInput = {
 export type PedidoMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   mesa?: Prisma.SortOrder
-  status_mesa?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   rascunho?: Prisma.SortOrder
   cliente_nome?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -426,7 +426,7 @@ export type PedidoUpdateOneRequiredWithoutItensNestedInput = {
 export type PedidoCreateWithoutItensInput = {
   id?: string
   mesa: number
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: string | null
   createdAt?: Date | string
@@ -436,7 +436,7 @@ export type PedidoCreateWithoutItensInput = {
 export type PedidoUncheckedCreateWithoutItensInput = {
   id?: string
   mesa: number
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: string | null
   createdAt?: Date | string
@@ -462,7 +462,7 @@ export type PedidoUpdateToOneWithWhereWithoutItensInput = {
 export type PedidoUpdateWithoutItensInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   mesa?: Prisma.IntFieldUpdateOperationsInput | number
-  status_mesa?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   rascunho?: Prisma.BoolFieldUpdateOperationsInput | boolean
   cliente_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -472,7 +472,7 @@ export type PedidoUpdateWithoutItensInput = {
 export type PedidoUncheckedUpdateWithoutItensInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   mesa?: Prisma.IntFieldUpdateOperationsInput | number
-  status_mesa?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  status?: Prisma.BoolFieldUpdateOperationsInput | boolean
   rascunho?: Prisma.BoolFieldUpdateOperationsInput | boolean
   cliente_nome?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -513,7 +513,7 @@ export type PedidoCountOutputTypeCountItensArgs<ExtArgs extends runtime.Types.Ex
 export type PedidoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   mesa?: boolean
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: boolean
   createdAt?: boolean
@@ -525,7 +525,7 @@ export type PedidoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
 export type PedidoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   mesa?: boolean
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: boolean
   createdAt?: boolean
@@ -535,7 +535,7 @@ export type PedidoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type PedidoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   mesa?: boolean
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: boolean
   createdAt?: boolean
@@ -545,14 +545,14 @@ export type PedidoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type PedidoSelectScalar = {
   id?: boolean
   mesa?: boolean
-  status_mesa?: boolean
+  status?: boolean
   rascunho?: boolean
   cliente_nome?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type PedidoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "mesa" | "status_mesa" | "rascunho" | "cliente_nome" | "createdAt" | "updatedAt", ExtArgs["result"]["pedido"]>
+export type PedidoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "mesa" | "status" | "rascunho" | "cliente_nome" | "createdAt" | "updatedAt", ExtArgs["result"]["pedido"]>
 export type PedidoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   itens?: boolean | Prisma.Pedido$itensArgs<ExtArgs>
   _count?: boolean | Prisma.PedidoCountOutputTypeDefaultArgs<ExtArgs>
@@ -568,7 +568,7 @@ export type $PedidoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     mesa: number
-    status_mesa: boolean
+    status: boolean
     rascunho: boolean
     cliente_nome: string | null
     createdAt: Date
@@ -999,7 +999,7 @@ export interface Prisma__PedidoClient<T, Null = never, ExtArgs extends runtime.T
 export interface PedidoFieldRefs {
   readonly id: Prisma.FieldRef<"Pedido", 'String'>
   readonly mesa: Prisma.FieldRef<"Pedido", 'Int'>
-  readonly status_mesa: Prisma.FieldRef<"Pedido", 'Boolean'>
+  readonly status: Prisma.FieldRef<"Pedido", 'Boolean'>
   readonly rascunho: Prisma.FieldRef<"Pedido", 'Boolean'>
   readonly cliente_nome: Prisma.FieldRef<"Pedido", 'String'>
   readonly createdAt: Prisma.FieldRef<"Pedido", 'DateTime'>

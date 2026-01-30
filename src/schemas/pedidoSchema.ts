@@ -25,4 +25,14 @@ const enviarPedidoSchema = z.object({
     }),
 });
 
-export { createPedidoSchema, enviarPedidoSchema };
+
+const finalizarPedidoSchema = z.object({
+    body: z.object({
+        pedido_id: z
+            .string({ message: "ID do Pedio e obrigatorio!" })
+            .min(1, { message: "ID precisa de no mínimo 1 letras e numeros" }),
+
+    }),
+});
+
+export { createPedidoSchema, enviarPedidoSchema, finalizarPedidoSchema };

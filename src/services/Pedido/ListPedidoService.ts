@@ -17,7 +17,7 @@ class ListPedidoService {
                 id: true,
                 mesa: true,
                 cliente_nome: true,
-                status_mesa: true,
+                status: true,
                 createdAt: true,
                 itens: {
                     select: {

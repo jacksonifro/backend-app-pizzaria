@@ -1,32 +1,30 @@
 import { prismaCliente } from "../../prisma";
 
-interface enviarProps{
-    cliente: string,
+interface finalziarProps {
     pedido_id: string,
 }
 
-class EnviarPedidoService {
-    async execute ({cliente, pedido_id}: enviarProps) {
+class FinalizarPedidoService {
+    async execute({ pedido_id }: finalziarProps) {
 
-        const verficarID = await prismaCliente.pedido.findFirst({
+        //Verificacao se pedido existe
+        const verificarPedido = await prismaCliente.pedido.findFirst({
             where: {
                 id: pedido_id
-            }   
+            }
         });
 
-        if (!verficarID) {
-            throw new Error("O ID do Pedido informado não existe!")
+        if (!verificarPedido) {
+            throw new Error("ID do Pedido informado não existe!")   //se a categoria nao existe ele para a execucao com o throw
         }
-
 
 
         const pedido = await prismaCliente.pedido.update({
             where: {
-                id: pedido_id,      
+                id: pedido_id,
             },
             data: {
-                cliente_nome: cliente,
-                rascunho: false
+                status: true
             },
             select: {
                 id: true,
@@ -43,4 +41,4 @@ class EnviarPedidoService {
     }
 }
 
-export {EnviarPedidoService};
+export { FinalizarPedidoService };

@@ -3,6 +3,16 @@ import { prismaCliente } from "../../prisma";
 class DetalhesPedidoService {
     async execute(id: string) {
 
+        const verficarID = await prismaCliente.pedido.findUnique({
+            where: {
+                id: id
+            }
+        });
+
+        if (!verficarID) {
+            throw new Error("O ID do Pedido informado não existe!")
+        }
+
         const verificarPedido = await prismaCliente.pedido.findFirst({
             where: {
                 id: id,         //procurando o produto pelo id informado
@@ -12,7 +22,7 @@ class DetalhesPedidoService {
                 mesa: true,
                 cliente_nome: true,
                 rascunho: true,
-                status_mesa: true,
+                status: true,
                 createdAt: true,
                 updatedAt: true,
                 itens: {

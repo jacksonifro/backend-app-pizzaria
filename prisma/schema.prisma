@@ -68,7 +68,7 @@ model Produto {
 model Pedido {
   id String @id @default(uuid())
   mesa Int
-  status_mesa Boolean @default(true) // False = Pendente, True = Atendida
+  status Boolean @default(false) // False = Pendente, True = Atendida
   rascunho Boolean @default(true) // True = Em produção, False = Pronto para entrega
   cliente_nome String?
 
