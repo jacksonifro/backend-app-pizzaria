@@ -14,9 +14,9 @@
 
 8. Dentro da SRC cria os arquivos router.js que vai ter as rotas e o server.ts que vai inicializar a api.
 
-9. Programa a configuração da porta no server.ts
+9. Programe a configuração da porta no server.ts. NÃO MEXA NO ROUTER.JS
 
-10. Muda o Scrpits no package.json para dev: tsx watch src/server.ts assim ele sempre ira escutar esse arquivo
+10. Muda o Scrpits no package.json para "dev": "tsx watch src/server.ts" assim ele sempre ira escutar esse arquivo
 
 11. Para rodar a api, vai no CMD na pasta do projeto e digita: npm run dev
 
@@ -36,9 +36,19 @@
 
 19. Para instalar o ORM Prisma segue os passos descritos na documentação: https://www.prisma.io/docs/getting-started/prisma-orm/add-to-existing-project/prisma-postgres 
 
+npm install prisma @types/node @types/pg --save-dev
+npm install @prisma/client @prisma/adapter-pg pg dotenv
+npx prisma init 
+
+19.A) Cria o banco de dados la no postgress. Depois cria o env de conexao DATABASE_URL.
+
+19. Cria o banco de dados la em schema.prisma
+
 20. Para fazer uma migration, depois que alterar o schema.prisma digita: npx prisma migrate dev --name your_migration_name
 
 21. ATENÇÃO APOS A MIGRATE: Sempre rodar o comando: npx prisma generate
+
+21A. PRIMA: Cria o arquivo index.ts em prisma dentro do src e faz a configuração do prisma. 
 
 22. CRIPTOGRAFAR SENHA: use o npm install bcryptjs
 
