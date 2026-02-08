@@ -31,6 +31,7 @@ import { DetalhesPedidoController } from "./controllers/Pedido/DetalhesPedidoCon
 import { EnviarPedidoController } from "./controllers/Pedido/EnviarPedidoController";
 import { FinalizarPedidoController } from "./controllers/Pedido/FinalizarPedidoController";
 import { DeletarPedidoController } from "./controllers/Pedido/DeletarPedidoController";
+import { EditCategoryController } from "./controllers/Categoria/EditCategoryController";
 
 
 
@@ -84,6 +85,15 @@ router.get(
     new ListCategoryController().handle 
 
 );
+
+
+//Rota para editar categoria
+router.put(
+    '/categories_edit',
+    autenticarTokenUser,
+    verificarPerfilAdmin,
+    new EditCategoryController().handle
+)
 
 //Rota para criar produto
 router.post(

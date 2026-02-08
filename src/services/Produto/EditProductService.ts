@@ -2,7 +2,6 @@ import { Readable } from "node:stream";  //biblioteca de streaming padrao do nod
 
 import { prismaCliente } from "../../prisma";
 import cloudinary from "../../config/cloudinary";
-import { UploadStream } from "cloudinary";
 
 interface EditProductProps {
     id: string,
@@ -21,8 +20,7 @@ class EditProductService {
         preco,
         descricao,
         categoria_id,
-        imagemBuffer,
-        imagemName,
+        imagemBuffer
 
     }: EditProductProps) {
 
