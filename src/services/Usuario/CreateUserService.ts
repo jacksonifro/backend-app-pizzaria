@@ -31,10 +31,19 @@ class CreateUserService {
         email: email,
         senha: senha,
       },
+      select: {
+        id: true,
+        nome: true,
+        email: true,
+        senha: true,
+        perfil: true,
+        createdAt: true,
+        updatedAt: true
+      }
     });
 
 
-    return { message: `Usuario ${user.nome} com email ${user.email} criado com sucesso` };  //retornando uma mensagem de sucesso do metodo execute
+    return user;  //retornando uma mensagem de sucesso do metodo execute
   }
 }
 

@@ -32,6 +32,7 @@ import { EnviarPedidoController } from "./controllers/Pedido/EnviarPedidoControl
 import { FinalizarPedidoController } from "./controllers/Pedido/FinalizarPedidoController";
 import { DeletarPedidoController } from "./controllers/Pedido/DeletarPedidoController";
 import { EditCategoryController } from "./controllers/Categoria/EditCategoryController";
+import DeleteCategoryController from "./controllers/Categoria/DeleteCategoryController";
 
 
 
@@ -93,6 +94,15 @@ router.put(
     autenticarTokenUser,
     verificarPerfilAdmin,
     new EditCategoryController().handle
+)
+
+
+//Rota para excluir categoria
+router.delete(
+    '/categories_delete',
+    autenticarTokenUser,
+    verificarPerfilAdmin,
+    new DeleteCategoryController().handle
 )
 
 //Rota para criar produto
